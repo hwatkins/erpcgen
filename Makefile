@@ -10,6 +10,10 @@ all: compile
 
 compile: $(REBAR)
 	@$(REBAR) compile
-
+	cp src/erpcgen.src ebin/erpcgen
+	chmod +x ebin/erpcgen
 clean: $(REBAR)
 	@$(REBAR) clean
+	rm ebin/erpcgen
+	rm examples/**/*.hrl
+	rm examples/**/*_{xdr,svc,clnt}.erl
